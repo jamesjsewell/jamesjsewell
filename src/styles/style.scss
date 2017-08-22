@@ -3,8 +3,32 @@
 	box-sizing: border-box;
 }
 
-h1 {
-	font-size: 300px;
-	text-align: center;
-	color: fuchsia;
+body{
+	padding: 0;
+	margin: 0;
 }
+
+.home_page_wrapper{
+
+	margin: auto;	
+
+	.home_page_header{
+		color: white;
+		background: green;
+		width: 80%;
+		margin: auto;
+		overflow: hidden;
+		height: 500px;
+		position: relative;
+
+		img{
+			position: absolute;
+			top: -70%;
+			max-width: 100;
+			height: auto;
+			margin: auto;
+		}
+	}
+
+}
+
