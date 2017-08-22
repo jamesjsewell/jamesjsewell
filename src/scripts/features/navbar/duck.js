@@ -70,12 +70,10 @@ export default combineReducers({
 // selectors
 const activeNavTab = state => state.nav.navLink.activeNavTab
 const sidebarVisible = state => state.nav.sidebar.sidebarVisible
-const authenticated = state => state.auth.userSession.authenticated
 const routes = state => state.nav.navLink.routes
 
 export const selector = createStructuredSelector({
 	activeNavTab,
 	sidebarVisible,
-	authenticated,
 	routes
 })

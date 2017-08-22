@@ -1,25 +1,9 @@
-import React, { Component } from "react"
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
-import { connect } from "react-redux"
-import { withRouter } from "react-router"
-import createHistory from "history/createBrowserHistory"
-// import Navbar from "./pages/navBarComponent.js"
-// import Register from "./authComponents/registerComponent.js"
-// import Login from "./authComponents/loginComponent.js"
-// import Authentication from "./authComponents/requireAuthComponent.js"
-// import ResetPasswordPage
-//     from "./pages/resetPasswordPage/resetPasswordPageComponent.js"
-// import HomePage from "./pages/homePage/homePageComponent.js"
-// import AuthPage from "./pages/authPage/authPageComponent.js"
-// import ProfilePage from "./pages/profilePage/profilePageComponent.js"
-// import NotAuthenticatedPage
-//     from "./pages/notAuthenticatedPage/notAuthenticatedPageComponent.js"
-// import {
-//     setActiveNavLink,
-//     hideSidebar,
-//     activateSidebar
-// } from "../actions/navActions.js"
-// import { dataIsLoading } from "../actions/testActions.js"
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import createHistory from "history/createBrowserHistory";
+
 import {
     Menu,
     Segment,
@@ -32,21 +16,13 @@ import {
     Container,
     Icon,
     Divider
-} from "semantic-ui-react"
+} from "semantic-ui-react";
 
-import HomeView from "../features/home/components/HomeView.jsx"
-import Navbar from "../features/navbar/components/NavbarView.jsx"
-import UserSessionView
-    from "../features/userSession/components/UserSessionView.jsx"
-import ResetPasswordView
-    from "../features/userSession/components/ResetPasswordView.jsx"
-import EditProfileView
-    from "../features/userProfile/components/EditProfileView.jsx"
-import Authentication from "../util/userAuthentication/components/Authentication.jsx"
+import Navbar from "../features/navbar/components/NavbarView.jsx";
 
 class Blank extends Component {
     render() {
-        return <div />
+        return <div />;
     }
 }
 
@@ -94,46 +70,26 @@ class RouterConfig extends Component {
                     </Dimmer>
 
                     <Navbar />
-                    <Authentication />
+                  
 
                     <Switch>
-                        <Route
-                            location={location}
-                            key={location.key}
-                            path="/reset-password/:resetToken"
-                            component={ResetPasswordView}
-                        />
-                        <Route
-                            path="/profile"
-                            component={
-                                this.props.user ? EditProfileView : Blank
-                            }
-                        />
-                        <Route path="/login" component={UserSessionView} />
-                        <Route path="/register" component={Blank} />
-                        <Route exact path="/" component={HomeView} />
-                        <Route path="*" component={HomeView} />
+
+                        <Route exact path="/" component={Blank} />
+                        <Route path="*" component={Blank} />
 
                     </Switch>
 
                 </Container>
 
             </Router>
-        )
+        );
     }
 }
-
-// user: state.auth.user,
-// sidebarVisible: state.nav.sidebarVisible,
-// loadingData: state.data.loadingData
 
 function mapStateToProps(state) {
     return {
-        user: state.auth.userSession.user
-    }
+        
+    };
 }
 
-// {
-//     setActiveNavLink, hideSidebar, dataIsLoading
-// }
-export default withRouter(connect(mapStateToProps)(RouterConfig))
+export default withRouter(connect(mapStateToProps)(RouterConfig));
