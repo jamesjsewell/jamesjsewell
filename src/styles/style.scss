@@ -1,6 +1,7 @@
 * {
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
+	font-size: 0;
 }
 
 body{
@@ -15,18 +16,58 @@ body{
 	.home_page_header{
 		color: white;
 		background: green;
-		width: 80%;
+		width: 100%;
 		margin: auto;
-		overflow: hidden;
-		height: 500px;
 		position: relative;
+		height: auto;
 
 		img{
-			position: absolute;
-			top: -70%;
+			
 			max-width: 100;
+			width: 100%;
 			height: auto;
 			margin: auto;
+		}
+
+		#slider1{
+			position: absolute;
+			bottom: 100;
+			margin: 0px;
+			padding: 0px;
+			img{
+				margin: 0px;
+				padding: 0px;
+				max-width: 100;
+				width: 100%;
+				
+			}
+			
+		}
+
+		#slider2{
+			position: absolute;
+			margin: 0px;
+			padding: 0px;
+			img{
+				margin: 0px;
+				padding: 0px;
+				max-width: 100;
+				width: 100%;
+				
+			}
+			
+		}
+		#slider3{
+			position: absolute;
+			margin: 0px;
+			padding: 0px;
+			img{
+				margin: 0px;
+				padding: 0px;
+				max-width: 100;
+				width: 100%;
+				
+			}
 		}
 	}
 
