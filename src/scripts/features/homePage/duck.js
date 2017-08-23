@@ -5,40 +5,32 @@ import { createStructuredSelector } from "reselect"
 
 // const cookies = new Cookies()
 
+const SET_SCROLL_DISTANCE = "set_scroll_distance"
+
+// actions
+
+export function setScrollDistance(distance) {
+	return function(dispatch) {
+		dispatch({ type: SET_SCROLL_DISTANCE, payload: -distance+"px" })
+	}
+}
 
 
-// // reducers
-// const init_nav = {
-// 	activeNavTab: "",
-// 	routes: {
-// 		homePath: "home",
-// 		loginPath: "login",
-// 		logoutPath: "logout",
-// 		profilePath: "profile"
-// 	}
-// }
 
-// function navLinkReducer(state = init_nav, action) {
-// 	switch (action.type) {
-// 		case SET_ACTIVE_NAV_LINK: {
-// 			return _.extend({}, state, { activeNavTab: action.payload })
-// 		}
-// 	}
+const init_carousel = { scrollDistance: "0px" }
 
-// 	return state
-// }
 
-// const init_sidebar = { sidebarVisible: false }
+export default function headerCarouselReducer(state = init_carousel, action) {
+	switch (action.type) {
+		case SET_SCROLL_DISTANCE: {
+			return _.extend({}, state, { scrollDistance: action.payload })
+		}
+	}
 
-// function sidebarReducer(state = init_sidebar, action) {
-// 	switch (action.type) {
-// 		case SHOW_HIDE_SIDEBAR: {
-// 			return _.extend({}, state, { sidebarVisible: action.payload })
-// 		}
-// 	}
+	return state
+}
 
-// 	return state
-// }
+
 
 // export default combineReducers({
 // 	navLink: navLinkReducer,
@@ -46,8 +38,8 @@ import { createStructuredSelector } from "reselect"
 // })
 
 // selectors
-const nothing = state => 'lol'
+const scrollDistance = state => state.headerCarousel.scrollDistance
 
 export const selector = createStructuredSelector({
-	nothing
+	scrollDistance
 })

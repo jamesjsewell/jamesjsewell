@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import { Link, NavLink } from "react-router-dom"
 import { withRouter } from "react-router"
-import * as duck from "../duck"
+import * as duck from "../duck.js"
 import NavbarLayout from "./NavbarLayout.jsx"
 
 @connect(
