@@ -14,13 +14,12 @@ body{
 	margin: auto;	
 
 	.home_page_header{
-		color: white;
+
 		width: 100%;
 		margin: auto;
 		position: relative;
-		height: auto;
-		overflow: hidden;
 		height: 500px;
+		overflow: hidden;
 
 		img{
 			
@@ -35,50 +34,25 @@ body{
 			top: 0px;
 			margin: 0px;
 			padding: 0px;
-			background: none;
-			-webkit-transition: 10s ease-in-out;
-            -moz-transition: 10s ease-in-out;
-            -o-transition: 10s ease-in-out;
-			
-			img{
-				margin: 0px;
-				padding: 0px;
-				max-width: 100;
-				width: 100%;
-				
-			}
 			
 		}
+			
+		img{
+			margin: 0px;
+			padding: 0px;
+			max-width: 100;
+			width: 100%;
+				
+		}
 
-		#slider2{
+		div{
+			position: absolute;
+			margin: 0px;
+			padding: 0px;
+	
+		}
+
 		
-			position: absolute;
-			margin: 0px;
-			padding: 0px;
-			
-			img{
-				margin: 0px;
-				padding: 0px;
-				max-width: 100;
-				width: 100%;
-				
-			}
-			
-		}
-		#slider3{
-
-			position: absolute;
-			margin: 0px;
-			padding: 0px;
-			
-			img{
-				margin: 0px;
-				padding: 0px;
-				max-width: 100;
-				width: 100%;
-				
-			}
-		}
 	}
 
 }
