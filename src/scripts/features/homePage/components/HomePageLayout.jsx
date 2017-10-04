@@ -1,186 +1,186 @@
 import React, { Component, PropTypes } from "react";
 import ReactDOM from "react-dom";
-
-var transitionSpeed = 30;
-var nextTransitionSpeed = 30;
-var scrollDistance = 0;
-var nextScrollDistance = 0;
-var destinationHeight = 0;
-var nextDestinationHeight = 0;
-var lastSliderHeight = 0;
-var animationDone = false;
-var animationEnding = false;
-var sliderStackArray = [];
-var generatedFirstStack = false;
+import _ from "underscore";
 
 export default class HomePageLayout extends Component {
-	componentWillReceiveProps(nextProps) {
-		scrollDistance = nextProps.scrollDistance;
-		nextScrollDistance = nextProps.nextScrollDistance;
+	constructor(props) {
+		super(props);
+		this.state = { slides: [], slidesCreated: 0 };
 	}
+
+	restart() {
+		this.state.slides = [];
+		this.state.slidesCreated = 0;
+		this.newSlides();
+		this.newSlides(true);
+	}
+	componentWillReceiveProps(nextProps) {}
 
 	componentDidMount() {
-		if (!sliderStackArray[0] && generatedFirstStack === false) {
-			this.generateSliderStacks(0);
-			generatedFirstStack = true;
-		}
+		this.newSlides();
+		this.newSlides(true);
 	}
 
-	generateSliderStacks(whatStack) {
-		if (whatStack === 0) {
-			sliderStackArray[0] = (
-				<SliderStack
-					newStack={this.generateSliderStacks.bind(this)}
-					setScrollDistance={this.props.actions.setScrollDistance}
-					removeStack={this.removeStack.bind(this)}
-				/>
-			);
-		}
-		if (whatStack === 1) {
-			sliderStackArray[1] = (
-				<SliderStack
-					isNextStack={true}
-					newStack={this.generateSliderStacks.bind(this)}
-					removeStack={this.removeStack.bind(this)}
-					setScrollDistance={this.props.actions.setScrollDistance}
-				/>
-			);
-		}
-		this.setState({});
+	newSlides(underneath) {
+		var slidesCreated = this.state.slidesCreated;
+
+		var slideArray = this.state.slides;
+		slideArray.push(
+			<Slide
+				slideNumber={this.state.slidesCreated}
+				underneath={underneath ? true : false}
+				removeSlide={this.removeSlide.bind(this)}
+				newSlides={this.newSlides.bind(this)}
+				restart={this.restart.bind(this)}
+			/>
+		);
+
+		this.state.slidesCreated = this.state.slidesCreated + 1;
+
+		this.setState({
+			slides: slideArray
+		});
 	}
 
-	removeStack() {
-		sliderStackArray[0] = null;
-		this.setState({});
+	removeSlide(indexOfSlide) {
+		var slideArray = this.state.slides;
+		slideArray[indexOfSlide] = null;
+
+		this.setState({ slides: slideArray });
 	}
 
 	render() {
 		return (
 			<div className="home_page_wrapper">
-
 				<div className="home_page_header">
-					{sliderStackArray ? sliderStackArray[0] : null}
-					{sliderStackArray ? sliderStackArray[1] : null}
+					{this.state.slides}
 				</div>
-
 			</div>
 		);
 	}
 }
 
-class SliderStack extends Component {
-	handleAnimLoop() {
-		if (
-			animationDone === false &&
-			animationEnding === false &&
-			!this.props.isNextStack
-		) {
-			this.props.setScrollDistance(
-				scrollDistance + lastSliderHeight,
-				"first"
-			);
-			animationEnding = true;
-			transitionSpeed = transitionSpeed / 3;
-			this.props.newStack(1);
-			return;
-		}
-		if (animationEnding === true && !this.props.isNextStack) {
-			this.props.removeStack();
-		}
-	}
-
-	calculateTotalHeight() {
-		if (this.refs.slider1) {
-			var slider1Height = this.refs.slider1.clientHeight,
-				slider2Height = this.refs.slider2.clientHeight,
-				slider3Height = this.refs.slider3.clientHeight,
-				slider4Height = this.refs.slider4.clientHeight;
-
-			if (!animationEnding && !this.props.isNextStack) {
-				lastSliderHeight = slider4Height;
-
-				destinationHeight =
-					slider1Height + slider2Height + slider3Height;
-			} else {
-				nextDestinationHeight =
-					slider1Height + slider2Height + slider3Height;
+class Slide extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			destinationStyleSet: false,
+			imgLoaded: false,
+			height: null,
+			speed: 4,
+			top: 0,
+			destination: 0,
+			style: {
+				
+				
+				verticalAlign: `top`,
+				lineHeight: `0px`,
+				position: `absolute`,
+				margin: `5px`,
+				padding: `5px`
 			}
-		}
-
+		};
 	}
+
+	componentWillUpdate(nextProps, nextState) {}
 
 	handleResize() {
-		this.calculateTotalHeight();
+		this.props.restart();
+	}
+
+	updateHeight() {
+		if (this.refs.slider && this.refs.image) {
+			var height = this.refs.slider.clientHeight;
+			var imgHeight = this.refs.image.clientHeight;
+			
+
+			if (this.props.underneath) {
+				if (height > 0 && !this.state.imgLoaded) {
+					this.state.imgLoaded = true;
+					this.state.destination = height;
+					this.setState({
+						style: _.extend({}, this.state.style, {
+							top: height * 2
+						})
+					});
+				} else if (height > 0 && this.state.imgLoaded) {
+					this.setDestinationStyle();
+				}
+			} else {
+				if (height > 0 && !this.state.imgLoaded) {
+					this.state.imgLoaded = true;
+					this.state.destination = height;
+					this.setState({
+						style: _.extend({}, this.state.style, {
+							top: height
+						})
+					});
+				} else {
+					this.state.destination = height;
+
+					this.setDestinationStyle();
+				}
+			}
+		}
+	}
+
+	setDestinationStyle() {
+		var speed = this.state.speed * 2;
+		var destination = this.state.destination * 2;
+
+		if (this.props.underneath) {
+			destination = this.state.destination * 4;
+			speed = this.state.speed * 4;
+		}
+
+		this.setState({
+			style: _.extend({}, this.state.style, {
+				transition: `transform ${speed}s linear`,
+				WebkitTransition: `transform ${speed}s linear`,
+				msTransition: `transform ${speed}s linear`,
+				msTransform: `translate(0px, -${destination}px )`,
+				WebkitTransform: `translate(0px, -${destination}px )`,
+				transform: `translate(0px, -${destination}px )`
+			})
+		});
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.imgLoaded && !prevState.destinationStyleSet) {
+			this.setDestinationStyle();
+			this.state.destinationStyleSet = true;
+		}
 	}
 
 	componentDidMount() {
 		window.addEventListener("resize", this.handleResize.bind(this));
-
-		if (this.props.isNextStack) {
-			var slider = this.refs.slider1;
-			var sliderHeight = this.refs.slider1.clientHeight;
-			slider.style["top"] = sliderHeight-12 + "px";
-		}
-
-		setInterval(() => {
-			this.animateSlider();
-		}, 10);
 	}
 
-	animateSlider() {
-		if (destinationHeight != scrollDistance && animationEnding === false) {
-			this.props.setScrollDistance(destinationHeight, "first");
+	handleTransitionEnd() {
+		if (!this.props.underneath) {
+			this.props.newSlides();
+			this.props.newSlides(true);
 		}
-		if (nextDestinationHeight != nextScrollDistance) {
-			this.props.setScrollDistance(nextDestinationHeight, "next");
-		}
-
+		this.props.removeSlide(this.props.slideNumber);
 	}
 
 	render() {
-		var isNextStack = this.props.isNextStack;
-		var slider1Style = {
-			transition: `transform ${isNextStack ? nextTransitionSpeed : transitionSpeed}s linear`,
-			WebkitTransition: `transform ${isNextStack ? nextTransitionSpeed : transitionSpeed}s linear`,
-			msTransition: `transform ${isNextStack ? nextTransitionSpeed : transitionSpeed}s linear`,
-			msTransform: `translate(0px, -${isNextStack ? nextScrollDistance : scrollDistance}px )`,
-			WebkitTransform: `translate(0px, -${isNextStack ? nextScrollDistance : scrollDistance}px )`,
-			transform: `translate(0px, -${isNextStack ? nextScrollDistance : scrollDistance}px )`
-		};
 
 		return (
 			<div
-				style={slider1Style}
-				ref={"slider1"}
-				id="slider1"
+				ref={"slider"}
+				style={this.state.style}
 				onTransitionEnd={() => {
-					if (!this.props.isNextStack) {
-						this.handleAnimLoop();
-					}
+					this.handleTransitionEnd();
 				}}
 			>
 				<img
-					onLoad={this.calculateTotalHeight.bind(this)}
+					ref={"image"}
+					onLoad={() => {
+						this.updateHeight();
+					}}
 					src="images/james-at-demo-day.jpg"
 				/>
-
-				<div ref={"slider2"} id="slider2">
-					<img
-						onLoad={this.calculateTotalHeight.bind(this)}
-						src="images/theironyard-64.jpg"
-					/>
-
-					<div ref={"slider3"} id="slider3">
-						<img
-							onLoad={this.calculateTotalHeight.bind(this)}
-							src="images/theironyard-66.jpg"
-						/>
-
-						<div ref={"slider4"} id="slider4">
-							<img src="images/theironyard-74.jpg" />
-						</div>
-					</div>
-				</div>
 
 			</div>
 		);
