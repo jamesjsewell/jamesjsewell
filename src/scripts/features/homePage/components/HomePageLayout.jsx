@@ -9,19 +9,31 @@ export default class HomePageLayout extends Component {
 	}
 
 	restart() {
-		this.state.slides = [];
-		this.state.slidesCreated = 0;
-		this.newSlides();
-		this.newSlides(true);
+		this.setState({ slides: [], slidesCreated: 0, restart: true });
 	}
+
+
 	componentWillReceiveProps(nextProps) {}
 
-	componentDidMount() {
-		this.newSlides();
-		this.newSlides(true);
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.restart && !prevState.restart) {
+			this.state.restart = false;
+			var underneath = true;
+			var generated = false;
+			this.newSlides(false, generated);
+			this.newSlides(underneath, generated);
+		}
 	}
 
-	newSlides(underneath) {
+	componentDidMount() {
+		window.addEventListener("resize", this.restart.bind(this));
+		var underneath = true;
+		var generated = false;
+		this.newSlides(false, generated);
+		this.newSlides(underneath, generated);
+	}
+
+	newSlides(underneath, generated) {
 		var slidesCreated = this.state.slidesCreated;
 
 		var slideArray = this.state.slides;
@@ -32,6 +44,7 @@ export default class HomePageLayout extends Component {
 				removeSlide={this.removeSlide.bind(this)}
 				newSlides={this.newSlides.bind(this)}
 				restart={this.restart.bind(this)}
+				generated={generated ? true : false}
 			/>
 		);
 
@@ -71,28 +84,29 @@ class Slide extends Component {
 			top: 0,
 			destination: 0,
 			style: {
-				
-				
 				verticalAlign: `top`,
 				lineHeight: `0px`,
 				position: `absolute`,
-				margin: `5px`,
-				padding: `5px`
+				margin: `0px`,
+				padding: `0px`
 			}
 		};
 	}
 
-	componentWillUpdate(nextProps, nextState) {}
+	componentWillUpdate(nextProps, nextState) {
+		if (!this.state.destinationStyleSet && nextState.destinationStyleSet) {
+		}
+	}
 
 	handleResize() {
-		this.props.restart();
+		
 	}
 
 	updateHeight() {
 		if (this.refs.slider && this.refs.image) {
-			var height = this.refs.slider.clientHeight;
-			var imgHeight = this.refs.image.clientHeight;
-			
+			var height = this.props.generated
+				? this.refs.slider.clientHeight - 10
+				: this.refs.slider.clientHeight - 10;
 
 			if (this.props.underneath) {
 				if (height > 0 && !this.state.imgLoaded) {
@@ -153,19 +167,21 @@ class Slide extends Component {
 	}
 
 	componentDidMount() {
-		window.addEventListener("resize", this.handleResize.bind(this));
+		
 	}
 
 	handleTransitionEnd() {
 		if (!this.props.underneath) {
-			this.props.newSlides();
-			this.props.newSlides(true);
+			var generated = true;
+			var underneath = true;
+			this.props.newSlides(false, generated);
+			this.props.newSlides(underneath, generated);
 		}
 		this.props.removeSlide(this.props.slideNumber);
 	}
 
 	render() {
-
+		
 		return (
 			<div
 				ref={"slider"}
