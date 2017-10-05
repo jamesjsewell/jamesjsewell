@@ -1,6 +1,15 @@
 import React, { Component, PropTypes } from "react";
 import ReactDOM from "react-dom";
 import _ from "underscore";
+import {
+	Container,
+	Row,
+	Col,
+	Visible,
+	Hidden,
+	ScreenClassRender,
+	ClearFix
+} from "react-grid-system";
 
 export default class HomePageLayout extends Component {
 	constructor(props) {
@@ -14,8 +23,8 @@ export default class HomePageLayout extends Component {
 	}
 
 	restart() {
-		this.setState({ slides: [], allImagesLoaded: false, imagesLoaded: 0});
-		this.newSlides()
+		this.setState({ slides: [], allImagesLoaded: false, imagesLoaded: 0 });
+		this.newSlides();
 	}
 
 	componentWillReceiveProps(nextProps) {}
@@ -30,10 +39,9 @@ export default class HomePageLayout extends Component {
 	onLoaded() {
 		this.state.imagesLoaded = this.state.imagesLoaded + 1;
 
-		console.log(this.state.imagesLoaded)
-		
+		console.log(this.state.imagesLoaded);
+
 		if (this.state.imagesLoaded === this.state.slideImages.length) {
-			
 			this.setState({ allImagesLoaded: true });
 		}
 	}
@@ -49,7 +57,6 @@ export default class HomePageLayout extends Component {
 				/>
 			);
 		}
-		
 
 		this.setState({
 			slides: slideArray
@@ -58,17 +65,47 @@ export default class HomePageLayout extends Component {
 
 	render() {
 		return (
-			<div className="home_page_wrapper">
-				<div className="slideshow">
-					<div className="centerTextBox">
-					<h3 id="jamesjsewell">James J Sewell</h3>
-					</div>
-					<div className={this.state.allImagesLoaded? "moveThis" : "hidden"}>
+			<div>
 
-						{this.state.slides}
-					</div>
+				<div className="home_page_wrapper">
+					<div className="slideshow">
+						<div className="centerTextBox">
+							<h3 id="jamesjsewell">James Sewell</h3>
+						</div>
+						<div
+							className={
+								this.state.allImagesLoaded
+									? "moveThis"
+									: "hidden"
+							}
+						>
+							{this.state.slides}
+						</div>
 
+					</div>
 				</div>
+
+				<Row>
+					<Col md={4} debug>
+						<Row >
+							<Col>
+							
+									<div style={{ padding: `.5rem`, margin: `.5rem`, background: `blue` }}>
+										cool
+									</div>
+								
+							</Col>
+						</Row>
+					</Col>
+
+					<Col md={4} debug>
+						<div style={{ padding: `1rem` }}>yeah</div>
+					</Col>
+					<Col md={4} debug>
+						<div style={{ padding: `1rem` }}>yeah</div>
+					</Col>
+				</Row>
+
 			</div>
 		);
 	}
@@ -80,7 +117,6 @@ class Slide extends Component {
 	}
 
 	render() {
-		
 		return (
 			<img
 				style={{

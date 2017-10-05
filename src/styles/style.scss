@@ -2,7 +2,8 @@
 	box-sizing: border-box;
 
 }
-@import url('https://fonts.googleapis.com/css?family=Playball');
+
+@import url('https://fonts.googleapis.com/css?family=Megrim');
 
 body{
 	padding: 0;
@@ -12,19 +13,6 @@ body{
 .home_page_wrapper{
 
 	margin: auto;	
-
-	/*.home_page_header{
-		height: 100vh;
-		width: 100%;
-		margin: auto;
-		position: relative;
-		max-height: 35vh;
-		overflow: hidden;
-		vertical-align: top;
-
-
-		
-	}*/
 
 	
 
@@ -51,7 +39,7 @@ body{
 	  			text-align: center;
 	  			padding: 1rem;
 	  			margin: .2rem;
-				font-family: 'Playball', cursive;
+				font-family: 'Megrim', cursive;
 				color: white;
 				font-size: 4rem;
 				word-break: keep-all;
@@ -69,11 +57,11 @@ body{
 
 	.moveThis {
 		font-size: 0;
-		animation: moveSlideshow 60s linear infinite;
+		animation: moveSlideshow 90s linear infinite;
 		transform: translate3d(0, 0, 0);
 		img{
-			-webkit-filter: brightness(50%);
-    		filter: brightness(50%);
+			-webkit-filter: brightness(70%);
+    		filter: brightness(70%);
 		}
 	}
 
