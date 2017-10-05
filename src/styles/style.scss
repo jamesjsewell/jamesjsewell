@@ -1,8 +1,8 @@
 * {
-	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
-	font-size: 0;
+
 }
+@import url('https://fonts.googleapis.com/css?family=Playball');
 
 body{
 	padding: 0;
@@ -13,7 +13,7 @@ body{
 
 	margin: auto;	
 
-	.home_page_header{
+	/*.home_page_header{
 		height: 100vh;
 		width: 100%;
 		margin: auto;
@@ -22,18 +22,67 @@ body{
 		overflow: hidden;
 		vertical-align: top;
 
-			
-		img{
-			margin: 0px;
-			padding: 0px;
-			max-width: 100;
-			width: 100%;
-				
+
+		
+	}*/
+
+	
+
+	.slideshow {
+
+		font-size: 100%;
+		height: 30vh;
+		max-width: 100%;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+		transform: translate3d(0, 0, 0);
+
+
+		.centerTextBox{
+			background: none;
+			z-index: 90;
+			position: absolute;
+	  		top: 50%;
+	  		left: 50%;	
+	  		transform: translate(-50%, -50%);
+
+	  		#jamesjsewell{
+	  			text-align: center;
+	  			padding: 1rem;
+	  			margin: .2rem;
+				font-family: 'Playball', cursive;
+				color: white;
+				font-size: 4rem;
+				word-break: keep-all;
+			}
+
 		}
 
 
-		
+
 	}
+
+	.hidden{
+		visibility: hidden;
+	}
+
+	.moveThis {
+		font-size: 0;
+		animation: moveSlideshow 60s linear infinite;
+		transform: translate3d(0, 0, 0);
+		img{
+			-webkit-filter: brightness(50%);
+    		filter: brightness(50%);
+		}
+	}
+
+	@keyframes moveSlideshow {
+		50% { 
+		transform: translateY(-95%);  
+		}
+	}
+
 
 }
 
