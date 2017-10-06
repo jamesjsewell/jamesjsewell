@@ -11,6 +11,19 @@ import {
 	ClearFix
 } from "react-grid-system";
 
+const styleFunction = (screenClass, props) => {
+	let fontSize = 0;
+	if (screenClass === "xs") fontSize = .25;
+	if (screenClass === "sm") fontSize = .50;
+	if (screenClass === "md") fontSize = .75;
+	if (screenClass === "lg") fontSize = 1.0;
+	if (screenClass === "xl") fontSize = 2.0;
+
+	var updatedStyle = props && props.style ? props.style : {};
+	updatedStyle["fontSize"] = `${fontSize}rem`;
+	return updatedStyle;
+};
+
 export default class HomePageLayout extends Component {
 	constructor(props) {
 		super(props);
@@ -85,26 +98,52 @@ export default class HomePageLayout extends Component {
 					</div>
 				</div>
 
-				<Row>
-					<Col md={4} debug>
-						<Row >
-							<Col>
-							
-									<div style={{ padding: `.5rem`, margin: `.5rem`, background: `blue` }}>
-										cool
-									</div>
-								
-							</Col>
-						</Row>
-					</Col>
+				<Container>
+					<Row>
+						<Col md={7}>
+							<Row>
+								<Col md={4}>
 
-					<Col md={4} debug>
-						<div style={{ padding: `1rem` }}>yeah</div>
-					</Col>
-					<Col md={4} debug>
-						<div style={{ padding: `1rem` }}>yeah</div>
-					</Col>
-				</Row>
+									<div className="component_wrapper bg-primary-1 border-primary-4">
+
+										<ScreenClassRender
+											style={styleFunction}
+										>
+											<h1 className="fg-primary-4">
+												some text
+											</h1>
+										</ScreenClassRender>
+
+									</div>
+
+								</Col>
+
+								<Col md={4}>
+
+									<div className="component_wrapper">
+										<p>cool lorem adsfadsf dsfasd dafad fadf fda fasdfa sdfadfds fadf dfdf dafdfd fdf asfa dfdfdad dfdfdf adfdf ddsdf fdsafdf dfd adfadsf dad adfasdf dfadf adfa sd </p>
+									</div>
+
+								</Col>
+
+								<Col md={4}>
+
+									<div className="component_wrapper">
+										<p>cool lorem adsfadsf dsfasd dafad fadf fda fasdfa sdfadfds fadf dfdf dafdfd fdf asfa dfdfdad dfdfdf adfdf ddsdf fdsafdf dfd adfadsf dad adfasdf dfadf adfa sd</p>
+									</div>
+
+								</Col>
+							</Row>
+						</Col>
+
+						<Col md={3}>
+							<div className="component_wrapper">yeah</div>
+						</Col>
+						<Col md={2}>
+							<div className="component_wrapper">yeah</div>
+						</Col>
+					</Row>
+				</Container>
 
 			</div>
 		);
