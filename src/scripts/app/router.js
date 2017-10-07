@@ -6,6 +6,7 @@ import createHistory from "history/createBrowserHistory";
 
 import Navbar from "../features/navbar/components/NavbarView.jsx";
 import HomePageView from "../features/HomePage/components/HomePageView.jsx"
+import HeroView from "../features/heroSection/components/HeroView.jsx"
 
 class Blank extends Component {
     render() {
@@ -19,7 +20,10 @@ class RouterConfig extends Component {
             <Router>
 
                 <div>
-
+                   
+                    <Navbar />
+                    <HeroView />
+                    
                     <Switch>
 
                         <Route exact path="/" component={HomePageView} />

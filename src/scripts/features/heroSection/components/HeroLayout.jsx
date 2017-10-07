@@ -13,9 +13,9 @@ import {
 
 const styleFunction = (screenClass, props) => {
 	let fontSize = 0;
-	if (screenClass === "xs") fontSize = .25;
-	if (screenClass === "sm") fontSize = .50;
-	if (screenClass === "md") fontSize = .75;
+	if (screenClass === "xs") fontSize = 0.25;
+	if (screenClass === "sm") fontSize = 0.50;
+	if (screenClass === "md") fontSize = 0.75;
 	if (screenClass === "lg") fontSize = 1.0;
 	if (screenClass === "xl") fontSize = 2.0;
 
@@ -24,7 +24,7 @@ const styleFunction = (screenClass, props) => {
 	return updatedStyle;
 };
 
-export default class HomePageLayout extends Component {
+export default class HeroLayout extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -52,8 +52,6 @@ export default class HomePageLayout extends Component {
 	onLoaded() {
 		this.state.imagesLoaded = this.state.imagesLoaded + 1;
 
-		console.log(this.state.imagesLoaded);
-
 		if (this.state.imagesLoaded === this.state.slideImages.length) {
 			this.setState({ allImagesLoaded: true });
 		}
@@ -78,29 +76,17 @@ export default class HomePageLayout extends Component {
 
 	render() {
 		return (
-			<div style={{width: `300px`, height: `1200px`}}>
-			fasdfadf
-			asdfasd
-			fasdfasd
-			fdsafasd
-			fasdfasddaf
-			sdfasdfa
-			sdfasdfaasdfas
-			defaultsdfasdf
-			asdfdfdf
-			fdsafasdafdfasdf
-			asdfasdfdfdf
-			defaultsdfasdffdafd
-			defaultsdfasdffdafddfd
-			asdfdfdfasdfad
-			defaultsdfas
-			asdf
-			asdfdfdfasdfad
-			gghhrr
-			hrrs
-			adghtyha
-			gsfgt
-				
+			<div className="slideshow hero">
+				<div className="centerTextBox">
+					<h3 id="jamesjsewell">James Sewell</h3>
+				</div>
+				<div
+					className={
+						this.state.allImagesLoaded ? "moveThis" : "hidden"
+					}
+				>
+					{this.state.slides}
+				</div>
 
 			</div>
 		);

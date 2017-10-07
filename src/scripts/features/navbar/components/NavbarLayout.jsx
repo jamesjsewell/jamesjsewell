@@ -1,172 +1,107 @@
-import React, { Component, PropTypes } from "react"
-import { Menu, Segment, Grid, Sidebar, Header, Button } from "semantic-ui-react"
+import React, { Component, PropTypes } from "react";
+import {
+	Container,
+	Row,
+	Col,
+	Visible,
+	Hidden,
+	ScreenClassRender,
+	ClearFix
+} from "react-grid-system";
 
+const buttonStyle = (screenClass, props) => {
+	var updatedStyle = {};
+	
+	if (props.style) {
+		updatedStyle = props.style;
+	}
+
+	if (screenClass === "xs") {
+		updatedStyle["padding"] = `.1rem`;
+		updatedStyle["fontSize"] = `.80rem`
+	}
+
+	if (screenClass === "sm") {
+		updatedStyle["padding"] = `.1rem`;
+		updatedStyle["fontSize"] = `.85rem`
+	}
+
+	if (screenClass === "md") {
+		updatedStyle["padding"] = `.2rem`;
+		updatedStyle["fontSize"] = `.90rem`
+	}
+
+	if (screenClass === "lg") {
+		updatedStyle["padding"] = `.3rem`;
+		updatedStyle["fontSize"] = `1rem`
+	}
+
+	if (screenClass === "xl") {
+		updatedStyle["padding"] = `.5rem`;
+		updatedStyle["fontSize"] = `1.2rem`
+
+	}
+
+	return updatedStyle;
+};
 
 export default class NavbarLayout extends Component {
 	render() {
-		
-		var currentUrl = window.location.pathname
+		var currentUrl = window.location.pathname;
 		const {
 			sidebarVisible,
 			authenticated,
 			action_onClickLink,
 			action_sidebarVis,
 			routes
-		} = this.props
+		} = this.props;
 		return (
-			<Grid columns={1} container centered divided>
-				<Grid.Row centered only="computer" padded>
+			<Visible md lg xl sm>
 
-					<Grid.Column>
+				<Container fluid className="navbar" >
 
-						<Menu size={"big"} pointing floating fluid secondary>
+					<Row>
 
-							<Menu.Menu>
-								<Menu.Item
-									header
-									id={routes.homePath} //the url
-									name="home"
-									active={currentUrl.includes(
-										routes.homePath
-									)}
-									onClick={action_onClickLink.bind(this)}
-								/>
-							</Menu.Menu>
+						<Col md={12} lg={12} sm={12}>
 
-							{authenticated
-								? <Menu.Menu>
-										<Menu.Item
-											header
-											id={
-												authenticated
-													? routes.profilePath
-													: ""
-											} //the url
-											name={
-												authenticated
-													? routes.profilePath
-													: ""
-											}
-											active={currentUrl.includes(
-												routes.profilePath
-											)}
-											onClick={action_onClickLink.bind(
-												this
-											)}
-										/>
-									</Menu.Menu>
-								: null}
+							<ScreenClassRender style={buttonStyle}>
+								<button
+									className="active"
+									style={{marginRight: `8px`, display: `inline`}}
+									onClick={() => {
+										console.log("clicked home nav link");
+									}}
+								>
+									home
+								</button>
+							</ScreenClassRender>
+							<ScreenClassRender style={buttonStyle}>
+								<button
+									style={{marginRight: `8px`, marginLeft: `0`, display: `inline`}}
+									onClick={() => {
+										console.log("clicked home nav link");
+									}}
+								>
+									about
+								</button>
+							</ScreenClassRender>
+							<ScreenClassRender style={buttonStyle}>
+								<button
+									style={{marginRight: `0px`, marginLeft: `0`, display: `inline`}}
+									onClick={() => {
+										console.log("clicked home nav link");
+									}}
+								>
+									contact
+								</button>
+							</ScreenClassRender>
 
-							<Menu.Menu position="right">
-								<Menu.Item
-									header
-									id={
-										authenticated
-											? routes.logoutPath
-											: routes.loginPath
-									} //the url
-									name={
-										authenticated
-											? routes.logoutPath
-											: routes.loginPath
-									}
-									active={currentUrl.includes(
-										authenticated
-											? routes.logoutPath
-											: routes.loginPath
-									)}
-									onClick={action_onClickLink.bind(this)}
-								/>
-							</Menu.Menu>
+						</Col>
 
-						</Menu>
+					</Row>
 
-					</Grid.Column>
-
-				</Grid.Row>
-
-				<Grid.Row>
-
-					<Grid.Column only="tablet mobile">
-
-						<Button onClick={action_sidebarVis.bind(this)}>
-							Menu
-						</Button>
-
-						<Sidebar
-							as={Menu}
-							size="massive"
-							animation="push"
-							width="wide"
-							visible={sidebarVisible}
-							icon="labeled"
-							vertical
-							stackable
-							inverted={false}
-						>
-							<Menu.Menu>
-								<Menu.Item
-									header
-									id={routes.homePath} //the url
-									name="home"
-									active={currentUrl.includes(
-										routes.homePath
-									)}
-									onClick={action_onClickLink.bind(this)}
-								/>
-							</Menu.Menu>
-
-							{authenticated
-								? <Menu.Menu>
-										<Menu.Item
-											header
-											id={
-												authenticated
-													? routes.profilePath
-													: ""
-											} //the url
-											name={
-												authenticated
-													? routes.profilePath
-													: ""
-											}
-											active={currentUrl.includes(
-												routes.profilePath
-											)}
-											onClick={action_onClickLink.bind(
-												this
-											)}
-										/>
-									</Menu.Menu>
-								: null}
-
-							<Menu.Menu position="right">
-								<Menu.Item
-									header
-									id={
-										authenticated
-											? routes.logoutPath
-											: routes.loginPath
-									} //the url
-									name={
-										authenticated
-											? routes.logoutPath
-											: routes.loginPath
-									}
-									active={currentUrl.includes(
-										authenticated
-											? routes.logoutPath
-											: routes.loginPath
-									)}
-									onClick={action_onClickLink.bind(this)}
-								/>
-							</Menu.Menu>
-						</Sidebar>
-
-					</Grid.Column>
-
-				</Grid.Row>
-			</Grid>
-		)
+				</Container>
+			</Visible>
+		);
 	}
 }
