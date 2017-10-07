@@ -55,10 +55,22 @@ body{
 		background: none;
 		border: none;
 		font-family: 'Source Sans Pro', sans-serif;
+		transition: .5s ease;
+		-webkit-transition: .5s ease;
 	}
 	button:focus {
   		outline: none !important;
 	}
+	button:hover{
+		padding: .3rem;
+		margin: .3rem;
+		border-radius: .5rem;
+		transition: .5s ease;
+		-webkit-transition: .5s ease;
+		
+
+	}
+
 	.active{
 		border-bottom: .2rem solid white;
 	}
