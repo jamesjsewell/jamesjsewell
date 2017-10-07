@@ -34,9 +34,9 @@ const init_nav = {
 	activeNavTab: "",
 	routes: {
 		homePath: "home",
-		loginPath: "login",
-		logoutPath: "logout",
-		profilePath: "profile"
+		contactPath: "contact",
+		aboutPath: "about",
+
 	}
 }
 
