@@ -10,11 +10,12 @@ import {
 	ScreenClassRender,
 	ClearFix
 } from "react-grid-system";
+import Modal from "../../../components/modal/Modal.jsx";
 
 export default class Skills extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { modalOpen: false, modalContent: null };
 	}
 
 	componentWillReceiveProps(nextProps) {}
@@ -43,10 +44,52 @@ export default class Skills extends Component {
 
 		for (var i = 0; i < definedSkillsArray.length; i++) {
 			console.log(definedSkillsArray[i]);
-			skillElementsArray.push(<Skill theSkill={definedSkillsArray[i]} />);
+			skillElementsArray.push(
+				<Skill
+					key={i}
+					skillNumber={i}
+					openSkill={this.handleOpenModal.bind(this)}
+					theSkill={definedSkillsArray[i]}
+				/>
+			);
 		}
 
 		return skillElementsArray;
+	}
+
+	handleCloseModal() {
+		if (this.state.modalOpen) {
+			this.setState({ modalOpen: false });
+		}
+	}
+
+	handleOpenModal(theSkill) {
+		var modalContent = (
+			<div className="modal_content_wrapper">
+				<Container>
+
+					<Row>
+
+						<Col xl={12} >
+
+						<div className="modal_content">
+
+							<h3>{theSkill.name}</h3>
+
+							<p>{theSkill.description}</p>
+
+						</div>
+
+						</Col>
+
+					</Row>
+
+				</Container>
+
+			</div>
+		);
+
+		this.setState({ modalContent: modalContent, modalOpen: true });
 	}
 
 	render() {
@@ -63,6 +106,15 @@ export default class Skills extends Component {
 
 							</div>
 
+							{this.state.modalOpen
+								? <Modal
+										modalContent={this.state.modalContent}
+										closeModal={this.handleCloseModal.bind(
+											this
+										)}
+									/>
+								: null}
+
 						</Col>
 
 					</Row>
@@ -77,12 +129,16 @@ export default class Skills extends Component {
 const skillWrapperStyle = (screenClass, props) => {
 	var updatedStyle = props && props.style ? props.style : {};
 
-	if (screenClass === "xs") updatedStyle.width = `2rem`;
-	if (screenClass === "sm") updatedStyle.width = `4rem`;
-	if (screenClass === "md") updatedStyle.width = `6rem`;
-	if (screenClass === "lg") updatedStyle.width = `8rem`;
+	if (screenClass === "xs")
+		(updatedStyle.width = `7rem`), (updatedStyle.height = `7rem`), (updatedStyle.fontSize = `1.75rem`);
+	if (screenClass === "sm")
+		(updatedStyle.width = `8rem`), (updatedStyle.height = `8rem`), (updatedStyle.fontSize = `2rem`);
+	if (screenClass === "md")
+		(updatedStyle.width = `8.5rem`), (updatedStyle.height = `8.5rem`), (updatedStyle.fontSize = `2.5rem`);
+	if (screenClass === "lg")
+		(updatedStyle.width = `9rem`), (updatedStyle.height = `9rem`), (updatedStyle.fontSize = `2.75rem`);
 	if (screenClass === "xl")
-		(updatedStyle.width = `10rem`), (updatedStyle.height = `10rem`);
+		(updatedStyle.width = `10rem`), (updatedStyle.height = `10rem`), (updatedStyle.fontSize = `3rem`);
 
 	return updatedStyle;
 };
@@ -100,17 +156,27 @@ class Skill extends Component {
 	componentDidMount() {}
 
 	render() {
-		const { theSkill } = this.props;
+		const { theSkill, skillNumber, openSkill } = this.props;
 
 		return (
 			<ScreenClassRender style={skillWrapperStyle}>
-				<div className="skill_wrapper">
 
-					<h3>{theSkill.name === "javascript"? "JS" : theSkill.name}</h3>
+				<button
+					onClick={() => {
+						openSkill(theSkill);
+					}}
+					className="skill_wrapper"
+				>
+					<i
+						style={{ padding: `.5rem`, margin: `.5rem` }}
+						className="material-icons"
+					>
+						visibility
+					</i>
+					{theSkill.name === "javascript" ? "JS" : theSkill.name}
 
-					<button><i style={{padding: `.5rem`, margin: `.5rem`}} className="material-icons">visibility</i></button>
+				</button>
 
-				</div>
 			</ScreenClassRender>
 		);
 	}
