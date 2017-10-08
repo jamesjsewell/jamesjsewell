@@ -41,12 +41,12 @@ export default class Modal extends Component {
 
 	render() {
 		const { modalContent, closeModal } = this.props;
-
 		return (
 			<ScreenClassRender style={modalWrapperStyle}>
 				<div className="modal_wrapper">
 
 					<button
+		
 						onClick={() => {
 							closeModal();
 						}}

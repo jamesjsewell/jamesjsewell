@@ -242,6 +242,7 @@ button:focus {
 	}
 
 	.modal_wrapper{
+
 		position: fixed;
 		top:0;
 		left: 0;
@@ -249,14 +250,33 @@ button:focus {
 		height: 100vh;
 		background-color: rgba(0,0,0, .8);
 
-		.modal_content{
-			color: white;
-			h3{
-				font-family: 'Source Sans Pro', sans-serif;
-			}
+		button{
 
-			p{
-				font-family: 'Source Sans Pro', sans-serif;
+			position: absolute;
+			top: 10%;
+			right: 10%;	
+				
+		}
+
+		.modal_content_wrapper{
+			
+			position: absolute;
+			top: 40%;
+			left: 50%;	
+			transform: translate(-50%, -50%);
+
+			.modal_content{
+
+				color: white;
+
+				h3{
+					font-family: 'Source Sans Pro', sans-serif;
+				}
+
+				p{
+					font-family: 'Source Sans Pro', sans-serif;
+				}
+
 			}
 		}
 	}	

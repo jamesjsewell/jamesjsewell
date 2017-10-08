@@ -64,28 +64,55 @@ export default class Skills extends Component {
 	}
 
 	handleOpenModal(theSkill) {
+		const headingTextStyle = (screenClass, props) => {
+			var updatedStyle = props && props.style ? props.style : {};
+
+			if (screenClass === "xs") updatedStyle.fontSize = `1.75rem`;
+			if (screenClass === "sm") updatedStyle.fontSize = `2rem`;
+			if (screenClass === "md") updatedStyle.fontSize = `2.5rem`;
+			if (screenClass === "lg") updatedStyle.fontSize = `2.75rem`;
+			if (screenClass === "xl") updatedStyle.fontSize = `3rem`;
+
+			return updatedStyle;
+		};
+
+		const bodyTextStyle = (screenClass, props) => {
+			var updatedStyle = props && props.style ? props.style : {};
+
+			if (screenClass === "xs") updatedStyle.fontSize = `1rem`;
+			if (screenClass === "sm") updatedStyle.fontSize = `1.25rem`;
+			if (screenClass === "md") updatedStyle.fontSize = `1.5rem`;
+			if (screenClass === "lg") updatedStyle.fontSize = `1.75rem`;
+			if (screenClass === "xl") updatedStyle.fontSize = `2rem`;
+
+			return updatedStyle;
+		};
+
 		var modalContent = (
 			<div className="modal_content_wrapper">
-				<Container>
+				<Container fluid>
 
 					<Row>
 
-						<Col xl={12} >
+						<Col xl={12}>
 
-						<div className="modal_content">
+							<div className="modal_content">
 
-							<h3>{theSkill.name}</h3>
+								<ScreenClassRender style={headingTextStyle}>
+									<h3>{theSkill.name}</h3>
+								</ScreenClassRender>
 
-							<p>{theSkill.description}</p>
+								<ScreenClassRender style={bodyTextStyle}>
+									<p>{theSkill.description}</p>
+								</ScreenClassRender>
 
-						</div>
+							</div>
 
 						</Col>
 
 					</Row>
 
 				</Container>
-
 			</div>
 		);
 
