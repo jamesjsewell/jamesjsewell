@@ -212,9 +212,49 @@ button:focus {
 
 .home_view{
 
-	.bio_text{
-		color: white;
-		font-family: 'Source Sans Pro', sans-serif;
+
+	.bio_wrapper{
+		margin: 1.5rem;
+		display: flex;
+		align-items: stretch;
+
+
+		.bio_text_wrapper{
+
+			text-align: left;
+			width: 58%;
+			padding: 1rem;
+			margin: .5rem;
+
+			h3{
+
+				display: block !important;
+				color: white;
+				font-family: 'Droid Serif', Serif;
+				padding: .5rem;
+				margin: .2rem;
+			}
+
+			p{
+				display: block !important;	
+				color: white;
+				font-family: 'Source Sans Pro', sans-serif;
+			}
+
+			
+
+		}
+
+		.bio_img_wrapper{
+			width: 40%;
+			position: relative;
+			overflow: hidden;
+			padding: .2rem;
+
+		}
+
+		
+
 	}
 
 	.skills_wrapper{

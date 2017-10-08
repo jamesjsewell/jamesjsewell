@@ -46,6 +46,7 @@ export default class HomePageLayout extends Component {
 		return (
 			<div className="home_view">
 
+				
 				<Bio />
 
 				<Skills />
