@@ -21,6 +21,24 @@ body{
 	background: none;
 }
 
+button{
+	color: white;
+	background: none;
+	border: none;
+	font-family: 'Source Sans Pro', sans-serif;
+	transition: .5s ease;
+	-webkit-transition: .5s ease;
+}
+
+button:focus {
+  	outline: none !important;
+}
+
+.hidden{
+	display: none;
+	visibility: hidden;
+}
+
 .backgroundIMG{
 		top: 0;
 		background-repeat: no-repeat;
@@ -38,6 +56,14 @@ body{
 		linear-gradient(225deg, hsla(194, 93%, 43%, 1) 10%, hsla(194, 93%, 43%, 0) 80%),
 		linear-gradient(315deg, hsla(307, 94%, 46%, 1) 100%, hsla(307, 94%, 46%, 0) 70%);
 
+}
+
+.mobile_nav_header{
+	width: 100%;
+	z-index: 25;
+	position: fixed;
+	background-color: rgba(0,0,0,.5);
+	transition: .5s ease;
 }
 
 .navbar{	
@@ -58,13 +84,11 @@ body{
 		transition: .5s ease;
 		-webkit-transition: .5s ease;
 	}
-	button:focus {
-  		outline: none !important;
-	}
+
 	button:hover{
 		padding: .3rem;
 		margin: .3rem;
-		border-radius: .5rem;
+		
 		transition: .5s ease;
 		-webkit-transition: .5s ease;
 		
@@ -74,6 +98,34 @@ body{
 	.active{
 		border-bottom: .2rem solid white;
 	}
+}
+
+.navbar_side{	
+	border-radius: .2rem;
+	position: fixed !important;
+	top: 0;
+	z-index: 20;
+	border-bottom: .2rem solid rgba(255,255,255, .4);
+	background: rgba(0,0,0,.5);
+
+	
+	button{
+		color: white;
+		background: none;
+		border: none;
+		font-family: 'Source Sans Pro', sans-serif;
+		transition: .5s ease;
+		-webkit-transition: .5s ease;
+	}
+	button:focus {
+  		outline: none !important;
+	}
+
+	.active{
+		border-bottom: .1rem solid white;
+	}
+
+
 }
 
 .hero{
@@ -136,9 +188,9 @@ body{
 		background: none;
 		z-index: 90;
 		position: absolute;
-			top: 50%;
-			left: 50%;	
-			transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;	
+		transform: translate(-50%, -50%);
 
 			#jamesjsewell{
 
@@ -156,6 +208,58 @@ body{
 
 
 
+}
+
+.home_view{
+
+	.bio_text{
+		color: white;
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+
+	.skills_wrapper{
+
+		.skill_wrapper{
+			display: inline-flex;
+			color: white;
+			background-color: rgba(0,0,0,.5);
+			padding: .5rem;
+			margin: .5rem;
+			border-radius: .4rem;
+			position: relative;
+
+			h3{
+				font-family: 'Megrim', cursive;
+				font-size: 2rem;
+				padding: .5rem;
+				margin: .2rem;
+				position: absolute;
+				top: 50%;
+				left: 50%;	
+				transform: translate(-50%, -50%);
+			}
+
+			button{
+			
+				position: absolute;
+				top: 2%;
+				right: 2%;
+				width: 30%;
+				height: 30%;
+				
+
+				i{
+					position: absolute;
+					top: -30%;
+					right: -30%;	
+					font-size: 3rem;
+
+				}
+
+			}
+		}
+	}
+	
 }
 
 	
