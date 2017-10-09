@@ -152,33 +152,36 @@ export default class NavbarLayout extends Component {
 
 				<Visible xs>
 
-					<Row>
+					<Container fluid>
+						<Row>
 
-						<Col
-							xs={12}
-							
-							className={this.state.sidebarOpen ? "hidden" : ""}
-						>
-							<div className="mobile_nav_header">
-							<button style={{ color: `white` }}>
-								<i
-									className="material-icons"
-									onClick={() => {
-										this.setState({ sidebarOpen: true });
-									}}
+							<Col xs={12}>
+								<div
+									className={
+										this.state.sidebarOpen
+											? "hidden"
+											: "mobile_nav_header"
+									}
 								>
-									menu
-								</i>
-							</button>
-							</div>
+									<button style={{ color: `white` }}>
+										<i
+											className="material-icons"
+											onClick={() => {
+												this.setState({
+													sidebarOpen: true
+												});
+											}}
+										>
+											menu
+										</i>
+									</button>
+								</div>
 
-						</Col>
+							</Col>
 
-					</Row>
+						</Row>
 
-				</Visible>
-
-				<Visible xs>
+					</Container>
 
 					<Container
 						fluid
@@ -284,7 +287,9 @@ export default class NavbarLayout extends Component {
 						</Row>
 
 					</Container>
+
 				</Visible>
+
 			</div>
 		);
 	}
