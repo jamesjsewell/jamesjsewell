@@ -127,6 +127,8 @@ export default class Skills extends Component {
 					<Row>
 						<Col xl={12}>
 
+							<h3>Technical Skills</h3>
+
 							<div style={{ padding: `.5rem`, width: `100%` }}>
 
 								{this.generatedSkills()}
@@ -153,23 +155,6 @@ export default class Skills extends Component {
 	}
 }
 
-const skillWrapperStyle = (screenClass, props) => {
-	var updatedStyle = props && props.style ? props.style : {};
-
-	if (screenClass === "xs")
-		(updatedStyle.width = `7rem`), (updatedStyle.height = `7rem`), (updatedStyle.fontSize = `1.75rem`);
-	if (screenClass === "sm")
-		(updatedStyle.width = `8rem`), (updatedStyle.height = `8rem`), (updatedStyle.fontSize = `2rem`);
-	if (screenClass === "md")
-		(updatedStyle.width = `8.5rem`), (updatedStyle.height = `8.5rem`), (updatedStyle.fontSize = `2.5rem`);
-	if (screenClass === "lg")
-		(updatedStyle.width = `9rem`), (updatedStyle.height = `9rem`), (updatedStyle.fontSize = `2.75rem`);
-	if (screenClass === "xl")
-		(updatedStyle.width = `10rem`), (updatedStyle.height = `10rem`), (updatedStyle.fontSize = `3rem`);
-
-	return updatedStyle;
-};
-
 class Skill extends Component {
 	constructor(props) {
 		super(props);
@@ -182,11 +167,40 @@ class Skill extends Component {
 
 	componentDidMount() {}
 
+	wrapperResize(screenClass, props) {
+		var updatedStyle = props && props.style ? props.style : {};
+
+		if (screenClass === "xs")
+			(updatedStyle.width = `7rem`), (updatedStyle.height = `7rem`), (updatedStyle.fontSize = `1.75rem`);
+		if (screenClass === "sm")
+			(updatedStyle.width = `8rem`), (updatedStyle.height = `8rem`), (updatedStyle.fontSize = `2rem`);
+		if (screenClass === "md")
+			(updatedStyle.width = `8.5rem`), (updatedStyle.height = `8.5rem`), (updatedStyle.fontSize = `2.5rem`);
+		if (screenClass === "lg")
+			(updatedStyle.width = `9rem`), (updatedStyle.height = `9rem`), (updatedStyle.fontSize = `2.75rem`);
+		if (screenClass === "xl")
+			(updatedStyle.width = `10rem`), (updatedStyle.height = `10rem`), (updatedStyle.fontSize = `3rem`);
+
+		return updatedStyle;
+	}
+
+	iconResize(screenClass, props) {
+		var updatedStyle = props && props.style ? props.style : {};
+
+		if (screenClass === "xs") updatedStyle.fontSize = `1rem`;
+		if (screenClass === "sm") updatedStyle.fontSize = `1.25rem`;
+		if (screenClass === "md") updatedStyle.fontSize = `1.50rem`;
+		if (screenClass === "lg") updatedStyle.fontSize = `1.75rem`;
+		if (screenClass === "xl") updatedStyle.fontSize = `2.0rem`;
+
+		return updatedStyle;
+	}
+
 	render() {
 		const { theSkill, skillNumber, openSkill } = this.props;
 
 		return (
-			<ScreenClassRender style={skillWrapperStyle}>
+			<ScreenClassRender style={this.wrapperResize.bind(this)}>
 
 				<button
 					onClick={() => {
@@ -194,12 +208,14 @@ class Skill extends Component {
 					}}
 					className="skill_wrapper"
 				>
-					<i
-						style={{ padding: `.5rem`, margin: `.5rem` }}
-						className="material-icons"
-					>
-						visibility
-					</i>
+					<ScreenClassRender style={this.iconResize.bind(this)}>
+						<i
+							style={{ padding: `.5rem`, margin: `.5rem` }}
+							className="material-icons"
+						>
+							visibility
+						</i>
+					</ScreenClassRender>
 					{theSkill.name === "javascript" ? "JS" : theSkill.name}
 
 				</button>

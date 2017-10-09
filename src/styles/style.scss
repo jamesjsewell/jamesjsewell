@@ -62,21 +62,21 @@ button:focus {
 
 .mobile_nav_header{
 
-	z-index: 10;
+	z-index: 5;
 	position: fixed;
 	background-color: rgba(0,0,0,.5);
 	transition: .5s ease;
 	margin: 0 !important;
+	
 }
 
 .navbar{	
+	z-index: 5;
 	border-radius: .2rem;
 	width: 100%;
 	position: fixed !important;
 	top: .5rem;
 	left: 2rem;
-	z-index: 20;
-	border-bottom: .2rem solid rgba(255,255,255, .4);
 	background: rgba(0,0,0,.4);
 	margin: 0;
 	
@@ -105,12 +105,11 @@ button:focus {
 }
 
 .navbar_side{	
+	z-index: 5;
 	border-radius: .2rem;
 	position: fixed !important;
 	top: 0;
-	z-index: 20;
-	border-bottom: .2rem solid rgba(255,255,255, .4);
-	background: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.5);
 
 	
 	button{
@@ -126,7 +125,7 @@ button:focus {
 	}
 
 	.active{
-		border-bottom: .1rem solid white;
+		border-bottom: .2rem solid white;
 	}
 
 
@@ -148,7 +147,7 @@ button:focus {
     -moz-box-shadow: 0px 0px 44px -5px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 44px -5px rgba(0,0,0,0.75);
 	font-size: 100%;
-	height: 30vh;
+	height: 15vh;
 	max-width: 100%;
 	margin: 0;
 	margin-bottom: .5rem;
@@ -199,15 +198,15 @@ button:focus {
 
 			#jamesjsewell{
 
-			text-align: center;
-			padding: 1rem;
-			margin: .2rem;
-			font-family: 'Megrim', cursive;
-			color: white;
-			font-size: 4rem;
-			word-break: keep-all;
+				text-align: center;
+				padding: 1rem;
+				margin: .2rem;
+				font-family: 'Megrim', cursive;
+				color: white;
+				font-size: 4rem;
+				word-break: keep-all;
 
-		}
+			}
 
 	}
 
@@ -235,10 +234,9 @@ button:focus {
 			margin: .5rem;
 
 			h3{
-
-				display: block !important;
 				color: white;
-				font-family: 'Droid Serif', Serif;
+				display: block !important;
+				font-family: 'Source Sans Pro', sans-serif;
 				padding: 0;
 				margin: 0;
 				margin-bottom: .2rem;
@@ -250,12 +248,11 @@ button:focus {
 				font-family: 'Source Sans Pro', sans-serif;
 			}
 
-			
-
 		}
 
 		.bio_img_wrapper{
-			width: 40%;
+
+			width: 30%;
 			position: relative;
 			overflow: hidden;
 			padding: 1rem;
@@ -267,11 +264,19 @@ button:focus {
 
 		}
 
-		
-
 	}
 
 	.skills_wrapper{
+
+		h3{
+
+			display: block !important;
+			color: white;
+			font-family: 'Source Sans Pro', sans-serif;
+			padding: 0;
+			margin: 0;
+			margin-bottom: .2rem;
+		}
 
 		.skill_wrapper{
 
@@ -284,6 +289,7 @@ button:focus {
 			position: relative;
 			font-family: 'Megrim', cursive;
 			text-align: center;
+			border-bottom: .5rem solid white;
 				
 			i{
 				position: absolute;
@@ -303,6 +309,8 @@ button:focus {
 		width: 100vw;
 		height: 100vh;
 		background-color: rgba(0,0,0, .8);
+
+		z-index: 15;
 
 		button{
 
@@ -334,6 +342,15 @@ button:focus {
 			}
 		}
 	}	
+}
+
+
+.footer_wrapper{
+	h4{
+		color: white;
+		padding: .5rem;
+		font-family: 'Source Sans Pro', sans-serif;
+	}
 }
 
 	

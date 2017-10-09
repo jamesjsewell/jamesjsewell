@@ -9,11 +9,11 @@ import rootReducer from "./reducers.js"
 import ReactGA from "react-ga"
 
 // Initialize Google Analytics
-ReactGA.initialize("UA-000000-01")
+//ReactGA.initialize("UA-000000-01")
 
-function logPageView() {
-    ReactGA.pageview(window.location.pathname)
-}
+// function logPageView() {
+//     ReactGA.pageview(window.location.pathname)
+// }
 
 const middleware = applyMiddleware(thunk)
 const store = createStore(rootReducer, middleware)

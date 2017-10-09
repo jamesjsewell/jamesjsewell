@@ -7,6 +7,7 @@ import createHistory from "history/createBrowserHistory";
 import Navbar from "../features/navbar/components/NavbarView.jsx";
 import HomePageView from "../features/HomePage/components/HomePageView.jsx"
 import HeroView from "../features/heroSection/components/HeroView.jsx"
+import Footer from "../features/footer/components/FooterView.jsx"
 
 class Blank extends Component {
     render() {
@@ -30,6 +31,8 @@ class RouterConfig extends Component {
                         <Route path="*" component={HomePageView} />
 
                     </Switch>
+
+                    <Footer />
 
                 </div>
 
