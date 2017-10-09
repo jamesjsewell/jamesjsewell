@@ -9,13 +9,14 @@
 
 html {
 
-	
+	max-width: 100%;
 	padding: 0px;
 	margin: 0px;
 	
 }
 
 body{
+	max-width: 100%;
 	padding: 0px;
 	margin: 0px;
 	background: none;
@@ -194,9 +195,9 @@ button:focus {
 
 			#jamesjsewell{
 
-				text-align: center;
-				padding: 1rem;
-				margin: .2rem;
+			text-align: center;
+			padding: 1rem;
+			margin: .2rem;
 			font-family: 'Megrim', cursive;
 			color: white;
 			font-size: 4rem;
@@ -231,8 +232,9 @@ button:focus {
 				display: block !important;
 				color: white;
 				font-family: 'Droid Serif', Serif;
-				padding: .5rem;
-				margin: .2rem;
+				padding: 0;
+				margin: 0;
+				margin-bottom: .2rem;
 			}
 
 			p{
@@ -249,7 +251,12 @@ button:focus {
 			width: 40%;
 			position: relative;
 			overflow: hidden;
-			padding: .2rem;
+			padding: 1rem;
+			margin: .5rem;
+			border-radius: 15px !important;
+			img{
+				border-radius: 15px;
+			}
 
 		}
 
