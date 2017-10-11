@@ -11,18 +11,19 @@ import {
 	ClearFix
 } from "react-grid-system";
 
-const jamesText = (screenClass, props) => {
-	let fontSize = 0;
-	if (screenClass === "xs") fontSize = 2.0;
-	if (screenClass === "sm") fontSize = 2.25;
-	if (screenClass === "md") fontSize = 2.5;
-	if (screenClass === "lg") fontSize = 2.75;
-	if (screenClass === "xl") fontSize = 3.0;
+const logoHeightResize = (screenClass, props) => {
+	let height = 0;
+	if (screenClass === "xs") height = 8.0;
+	if (screenClass === "sm") height = 8.25;
+	if (screenClass === "md") height = 8.5;
+	if (screenClass === "lg") height = 8.75;
+	if (screenClass === "xl") height = 14;
 
 	var updatedStyle = props && props.style ? props.style : {};
-	updatedStyle["fontSize"] = `${fontSize}rem`;
+	updatedStyle["height"] = `${height}rem`;
 	return updatedStyle;
 };
+
 
 export default class HeroLayout extends Component {
 	constructor(props) {
@@ -78,9 +79,11 @@ export default class HeroLayout extends Component {
 		return (
 			<div className="slideshow hero">
 				<div className="centerTextBox">
-				<ScreenClassRender style={jamesText}>
-					<h3 id="jamesjsewell">James Sewell</h3>
-				</ScreenClassRender>
+					
+					<ScreenClassRender style={logoHeightResize}>
+					<img style={{borderRadius: `.5rem`, border: `.2rem solid black`, borderRadius: `.4rem`, maxWidth: `100%`, height: `20rem`, padding: `.5rem`}} src="images/jsLogo.png"></img>
+					</ScreenClassRender>
+				
 				</div>
 				<div
 					className={
@@ -94,6 +97,7 @@ export default class HeroLayout extends Component {
 		);
 	}
 }
+//<h3 id="jamesjsewell">James Sewell</h3>
 // {this.state.slides}
 class Slide extends Component {
 	constructor(props) {

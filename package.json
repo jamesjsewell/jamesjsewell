@@ -47,6 +47,7 @@
     "morgan": "^1.8.1",
     "node-sass": "^3.7.0",
     "nodemon": "^1.11.0",
+    "react-grid-layout": "^0.16.0",
     "uglify-js": "^3.0.20",
     "uglifyify": "^4.0.2",
     "watchify": "^3.7.0"
