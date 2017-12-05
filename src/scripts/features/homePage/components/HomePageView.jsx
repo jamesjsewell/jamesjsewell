@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import { bindActionCreators } from "redux"
-import { connect } from "react-redux"
-import * as duck from "../duck.js"
-import HomePageLayout from "./HomePageLayout.jsx"
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as duck from "../duck.js";
+import HomePageLayout from "./HomePageLayout.jsx";
 
 @connect(
     state => duck.selector(state),
@@ -11,16 +11,8 @@ import HomePageLayout from "./HomePageLayout.jsx"
     })
 )
 class HomePageView extends Component {
-
-
     render() {
-       
-
-        return (
-            <HomePageLayout
-                {...this.props}
-            />
-        )
+        return <HomePageLayout {...this.props} />;
     }
 }
-export default HomePageView
+export default HomePageView;

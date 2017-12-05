@@ -42,7 +42,7 @@ button:focus {
 	margin: 0 !important;
 }
 
-.backgroundIMG{
+/*.backgroundIMG{
 		top: 0;
 		background-repeat: no-repeat;
     	background-attachment: fixed;
@@ -59,7 +59,7 @@ button:focus {
 		linear-gradient(225deg, hsla(194, 93%, 43%, 1) 10%, hsla(194, 93%, 43%, 0) 80%),
 		linear-gradient(315deg, hsla(307, 94%, 46%, 1) 100%, hsla(307, 94%, 46%, 0) 70%);
 
-}
+}*/
 
 .mobile_nav_header{
 
@@ -303,40 +303,6 @@ button:focus {
 		}
 	}
 
-	.projects_wrapper{
-
-
-		h3{
-			color: white;
-			font-family: 'Source Sans Pro', sans-serif;
-			padding: 0;
-			margin: 0;
-			margin-bottom: .2rem;
-		}
-
-		.project_wrapper{
-			
-			
-			color: white;
-			background-color: rgba(0,0,0,.5);
-			padding: .5rem;
-			margin: .5rem;
-			border-radius: .4rem;
-			position: relative;
-			font-family: 'Source Sans Pro', sans-serif;
-			text-align: center;
-			border-bottom: .5rem solid white;
-				
-			i{
-				position: absolute;
-				top: -10%;
-				right: -2%;	
-				font-size: 2.5rem;
-
-			}
-		}
-	}
-
 	.modal_wrapper{
 
 		position: fixed;
@@ -389,6 +355,128 @@ button:focus {
 	}
 }
 
+
+
+.react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: red;
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg08IS0tIEdlbmVyYXRvcjogQWRvYmUgRmlyZXdvcmtzIENTNiwgRXhwb3J0IFNWRyBFeHRlbnNpb24gYnkgQWFyb24gQmVhbGwgKGh0dHA6Ly9maXJld29ya3MuYWJlYWxsLmNvbSkgLiBWZXJzaW9uOiAwLjYuMSAgLS0+DTwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DTxzdmcgaWQ9IlVudGl0bGVkLVBhZ2UlMjAxIiB2aWV3Qm94PSIwIDAgNiA2IiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZmZmZmZmMDAiIHZlcnNpb249IjEuMSINCXhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiDQl4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjZweCIgaGVpZ2h0PSI2cHgiDT4NCTxnIG9wYWNpdHk9IjAuMzAyIj4NCQk8cGF0aCBkPSJNIDYgNiBMIDAgNiBMIDAgNC4yIEwgNCA0LjIgTCA0LjIgNC4yIEwgNC4yIDAgTCA2IDAgTCA2IDYgTCA2IDYgWiIgZmlsbD0iIzAwMDAwMCIvPg0JPC9nPg08L3N2Zz4=');
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+}
+
+
+.projects_wrapper{
+
+
+		.project_wrapper{
+			border-radius: 1rem;
+			position: relative;
+			overflow: hidden;
+
+			.header{
+				position: absolute;
+				top: 0px;
+				background: rgba(0,0,0,.7);
+				margin: auto;
+				width: 100%;
+				padding: .5rem;
+				z-index: 2;
+				
+			}
+
+			.content{
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+				height: 100%;
+				background-color: none;
+				img{
+					left:50%;
+					top:50%;
+					transform: translate(-50%, -50%);
+					position: absolute;
+					bottom: 0;
+					margin: none;
+					padding: none;
+				}
+			
+			}
+			
+			h4{
+				font-size: 100%;
+				padding: .2rem;
+				margin: 0;
+			}
+
+			p{
+				padding: .2rem;
+				margin: 0;
+				margin-top: .2rem;
+				font-size: 50%;
+			}
+
+			color: white;
+			background-color: rgba(0,0,0,.5);
+			
+			position: relative;
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: 100%;
+			text-align: center;
+	
+			height: 100%;
+			width: 100%;
+				
+			i{
+				position: absolute;
+				top: -10%;
+				right: -2%;	
+				font-size: 2.5rem;
+
+			}
+		}
+	}
 	
 
 

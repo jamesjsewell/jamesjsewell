@@ -81,7 +81,7 @@ export default class HeroLayout extends Component {
 				<div className="centerTextBox">
 					
 					<ScreenClassRender style={logoHeightResize}>
-					<img style={{borderRadius: `.5rem`, border: `.2rem solid black`, borderRadius: `.4rem`, maxWidth: `100%`, height: `20rem`, padding: `.5rem`}} src="images/jsLogo.png"></img>
+					<img style={{borderRadius: `.5rem`, maxWidth: `100%`, height: `20rem`, padding: `.5rem`}} src="images/jsNew-01-01.png"></img>
 					</ScreenClassRender>
 				
 				</div>
