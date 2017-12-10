@@ -21,9 +21,6 @@ class RouterConfig extends Component {
             <Router>
 
                 <div>
-                   
-                    <Navbar />
-                    <HeroView />
                     
                     <Switch>
 

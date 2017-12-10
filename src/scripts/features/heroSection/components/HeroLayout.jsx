@@ -24,7 +24,6 @@ const logoHeightResize = (screenClass, props) => {
 	return updatedStyle;
 };
 
-
 export default class HeroLayout extends Component {
 	constructor(props) {
 		super(props);
@@ -77,21 +76,8 @@ export default class HeroLayout extends Component {
 
 	render() {
 		return (
-			<div className="slideshow hero">
-				<div className="centerTextBox">
-					
-					<ScreenClassRender style={logoHeightResize}>
-					<img style={{borderRadius: `.5rem`, maxWidth: `100%`, height: `20rem`, padding: `.5rem`}} src="images/jsNew-01-01.png"></img>
-					</ScreenClassRender>
-				
-				</div>
-				<div
-					className={
-						this.state.allImagesLoaded ? "moveThis" : "hidden"
-					}
-				>
+			<div>
 
-				</div>
 
 			</div>
 		);
@@ -119,4 +105,3 @@ class Slide extends Component {
 		);
 	}
 }
-
