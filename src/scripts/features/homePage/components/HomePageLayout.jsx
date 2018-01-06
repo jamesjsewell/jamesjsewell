@@ -49,7 +49,15 @@ export default class HomePageLayout extends React.PureComponent {
             project1: { i: "0", x: 0, y: y + 4, w: 3, h: 3 },
             project2: { i: "1", x: 3, y: y + 4, w: 3, h: 3 },
             project3: { i: "2", x: 6, y: y + 4, w: 3, h: 3 },
-            project4: { i: "3", x: 9, y: y + 4, w: 3, h: 3 }
+            project4: { i: "3", x: 9, y: y + 4, w: 3, h: 3 },
+            skillsHeader: {
+                i: "skillsHeader",
+                x: 0,
+                y: y + 5,
+                w: 12,
+                h: 0.75
+            },
+            skills: { i: "skills", x: 0, y: y + 6, w: 12, h: 4 }
         };
 
         var proj = 10 / 4;
@@ -61,7 +69,15 @@ export default class HomePageLayout extends React.PureComponent {
             project1: { i: "0", x: 0, y: y + 4, w: proj, h: proj },
             project2: { i: "1", x: proj, y: y + 4, w: proj, h: proj },
             project3: { i: "2", x: proj * 2, y: y + 4, w: proj, h: proj },
-            project4: { i: "3", x: proj * 3, y: y + 4, w: proj, h: proj }
+            project4: { i: "3", x: proj * 3, y: y + 4, w: proj, h: proj },
+            skillsHeader: {
+                i: "skillsHeader",
+                x: 0,
+                y: y + 5,
+                w: 12,
+                h: 0.75
+            },
+            skills: { i: "skills", x: 0, y: y + 6, w: 12, h: 4 }
         };
         var proj = 6 / 2;
         const sm = {
@@ -72,86 +88,115 @@ export default class HomePageLayout extends React.PureComponent {
             project1: { i: "0", x: 0, y: y + 3, w: proj, h: proj },
             project2: { i: "1", x: proj, y: y + 3, w: proj, h: proj },
             project3: { i: "2", x: 0, y: y + 4, w: proj, h: proj },
-            project4: { i: "3", x: proj, y: y + 4, w: proj, h: proj }
+            project4: { i: "3", x: proj, y: y + 4, w: proj, h: proj },
+            skillsHeader: {
+                i: "skillsHeader",
+                x: 0,
+                y: y + 5,
+                w: 12,
+                h: 0.75
+            },
+            skills: { i: "skills", x: 0, y: y + 6, w: 12, h: 4 }
         };
         var proj = 2;
         const xs = {
             logo: { i: "logo", x: 0, y: y, w: 2, h: 1 },
-            contact: { i: "contact", x: 2, y: y+1, w: 4, h: 1 },
+            contact: { i: "contact", x: 2, y: y + 1, w: 4, h: 1 },
             aboutMe: { i: "about", x: 2, y: y + 2, w: 8, h: 3.5 },
             projectsHeader: { i: "projects", x: 0, y: y + 3, w: 12, h: 0.75 },
             project1: { i: "0", x: 0, y: y + 4, w: proj, h: proj },
             project2: { i: "1", x: proj, y: y + 4, w: proj, h: proj },
             project3: { i: "2", x: 0, y: y + 5, w: proj, h: proj },
-            project4: { i: "3", x: proj, y: y + 5, w: proj, h: proj }
+            project4: { i: "3", x: proj, y: y + 5, w: proj, h: proj },
+            skillsHeader: {
+                i: "skillsHeader",
+                x: 0,
+                y: y + 5,
+                w: 12,
+                h: 0.75
+            },
+            skills: { i: "skills", x: 0, y: y + 6, w: 12, h: 4 }
         };
         var proj = 2;
         const xxs = {
             logo: { i: "logo", x: 0, y: y, w: 1, h: 1 },
-            contact: { i: "contact", x: 2, y: y+1, w: 2, h: 1 },
+            contact: { i: "contact", x: 2, y: y + 1, w: 2, h: 1 },
             aboutMe: { i: "about", x: 2, y: y + 2, w: 8, h: 5.5 },
             projectsHeader: { i: "projects", x: 0, y: y + 3, w: 12, h: 0.5 },
             project1: { i: "0", x: 0, y: y + 6, w: proj, h: proj },
             project2: { i: "1", x: 0, y: y + 7, w: proj, h: proj },
             project3: { i: "2", x: 0, y: y + 8, w: proj, h: proj },
-            project4: { i: "3", x: 0, y: y + 9, w: proj, h: proj }
+            project4: { i: "3", x: 0, y: y + 9, w: proj, h: proj },
+            skillsHeader: {
+                i: "skillsHeader",
+                x: 0,
+                y: y + 10,
+                w: 12,
+                h: 0.75
+            },
+            skills: { i: "skills", x: 0, y: y + 11, w: 12, h: 4 }
         };
 
         var layouts = {
             lg: [
                 lg.logo,
                 lg.contact,
-
                 lg.aboutMe,
                 lg.projectsHeader,
                 lg.project1,
                 lg.project2,
                 lg.project3,
-                lg.project4
+                lg.project4,
+                lg.skillsHeader,
+                lg.skills
             ],
             md: [
                 md.logo,
                 md.contact,
-
                 md.aboutMe,
                 md.projectsHeader,
                 md.project1,
                 md.project2,
                 md.project3,
-                md.project4
+                md.project4,
+                md.skillsHeader,
+                md.skills
             ],
             sm: [
                 sm.logo,
                 sm.contact,
-
                 sm.aboutMe,
                 sm.projectsHeader,
                 sm.project1,
                 sm.project2,
                 sm.project3,
-                sm.project4
+                sm.project4,
+                sm.skillsHeader,
+                sm.skills
             ],
             xs: [
                 xs.logo,
                 xs.contact,
-
                 xs.aboutMe,
                 xs.projectsHeader,
                 xs.project1,
                 xs.project2,
                 xs.project3,
-                xs.project4
+                xs.project4,
+                xs.skillsHeader,
+                xs.skills
             ],
             xxs: [
                 xxs.logo,
                 xxs.contact,
-
                 xxs.aboutMe,
                 xxs.projectsHeader,
                 xxs.project1,
                 xxs.project2,
                 xxs.project3,
-                xxs.project4
+                xxs.project4,
+                xxs.skillsHeader,
+                xxs.skills
             ]
         };
 
@@ -199,11 +244,30 @@ export default class HomePageLayout extends React.PureComponent {
                     key="contact"
                     style={debug ? debugStyle : {}}
                 >
-                    <div className="contact_item"><img className="contact_img" src="images/github.svg"/></div>
-                    <div className="contact_item"><img className="contact_img" src="images/linkedin.svg"/></div>
-                    <div className="contact_item"><img className="contact_img" src="images/facebook.svg"/></div>
-                    <div className="contact_item"><img className="contact_img" src="images/twitter.svg"/></div>
-                    <div className="contact_item"><img className="contact_img" src="images/instagram.svg"/></div>
+                    <div className="contact_item">
+                        <img className="contact_img" src="images/github.svg" />
+                    </div>
+                    <div className="contact_item">
+                        <img
+                            className="contact_img"
+                            src="images/linkedin.svg"
+                        />
+                    </div>
+                    <div className="contact_item">
+                        <img
+                            className="contact_img"
+                            src="images/facebook.svg"
+                        />
+                    </div>
+                    <div className="contact_item">
+                        <img className="contact_img" src="images/twitter.svg" />
+                    </div>
+                    <div className="contact_item">
+                        <img
+                            className="contact_img"
+                            src="images/instagram.svg"
+                        />
+                    </div>
                 </div>
 
                 <div
@@ -211,7 +275,9 @@ export default class HomePageLayout extends React.PureComponent {
                     key="about"
                     style={debug ? debugStyle : {}}
                 >
-                    <p>James was a hobbyist developer and wanted a more practical understanding of software development and web technologies. He attended The Iron Yard Houston in the spring of 2017. Along with daily instruction, he applied concepts learned in the form of daily exercises and projects. He gained experience using version control, even on team projects, and utilizes it frequently. He learned to use UNIX commands in the terminal, and bash scripting. He learned foundational concepts all the way up to developing his own web applications with cutting edge frameworks. He continues to adopt new technologies and develop personal projects.</p>
+                    <p>
+                        James was a hobbyist developer and wanted a more practical understanding of software development and web technologies. He attended The Iron Yard Houston in the spring of 2017. Along with daily instruction, he applied concepts learned in the form of daily exercises and projects. He gained experience using version control, even on team projects, and utilizes it frequently. He learned to use UNIX commands in the terminal, and bash scripting. He learned foundational concepts all the way up to developing his own web applications with cutting edge frameworks. He continues to adopt new technologies and develop personal projects.
+                    </p>
                     {" "}
                 </div>
 
@@ -246,6 +312,73 @@ export default class HomePageLayout extends React.PureComponent {
                         theProject={this.state.projects[3]}
                         imgPath="images/gametally.png"
                     />
+                </div>
+
+                <div
+                    key="skillsHeader"
+                    className="skills_header"
+                    style={debug ? debugStyle : {}}
+                >
+                    <h4>Skills</h4>
+                </div>
+
+                <div key="skills" className="skills" style={debug ? debugStyle : {}}>
+                    
+                        <div className="skill">
+                            <img src="images/skills/js.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/html.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/css.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/jquery.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/backbone.png" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/react.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/node.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/mongodb.png" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/github.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/git.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/terminal.svg" />
+                        </div>
+
+                        <div className="skill">
+                            <img src="images/skills/photoshop.svg" />
+                        </div>
+                        <div className="skill">
+                            <img src="images/skills/lightroom.svg" />
+                        </div>
+                        <div className="skill">
+                            <img src="images/skills/ai.svg" />
+                        </div>
+
+
                 </div>
 
             </ResponsiveReactGridLayout>

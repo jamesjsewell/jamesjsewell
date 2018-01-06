@@ -480,9 +480,44 @@ button:focus {
 				
 		}
 	}
-	
 
-@media only screen and (min-device-width : 996px) {
+.skills_header{
+	text-align: center;
+	font-size: 2rem;
+	font-family: 'Teko', sans-serif;
+	font-style: bold;
+	padding: .2rem;
+
+}
+
+
+.skills{
+
+		display: inline-flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: flex-start;
+
+		.skill{
+
+			margin: .2rem;
+			width: 5rem;	
+			height: 5rem;
+		
+			img{
+				height: auto;
+				width: auto;
+				max-height: 100%;
+				max-width: 100%;
+				margin: none;
+		
+			}
+
+		}
+	}
+
+
+@media only screen and (min-width : 996px) {
 	h4{
 		font-size: 3rem;
 		padding: .2rem;
@@ -492,9 +527,18 @@ button:focus {
 	p{
 		font-size: 1.3rem;
 	}
+
+	.skills_wrapper{
+		.skill{
+
+			width: 7rem;	
+			height: 7rem;
+
+		}
+	}
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 996px) {
+@media only screen and (min-width : 768px) and (max-width : 996px) {
 	h4{
 		font-size: 3rem;
 		padding: .2rem;
@@ -504,9 +548,18 @@ button:focus {
 	p{
 		font-size: 1.3rem;
 	}
+	.skills_wrapper{
+		.skill{
+
+		
+			width: 6.5rem;	
+			height: 6.5rem;
+
+		}
+	}
 }
 
-@media only screen and (min-device-width : 480px) and (max-device-width : 768px) {
+@media only screen and (min-width : 480px) and (max-width : 768px) {
 	h4{
 		font-size: 2.5rem;
 		padding: .2rem;
@@ -515,9 +568,18 @@ button:focus {
 	p{
 		font-size: 1.2rem;
 	}
+
+	.skills_wrapper{
+		.skill{
+
+			width: 6rem !important;	
+			height: 6rem !important;
+
+		}
+	}
 }
 
-@media only screen and (min-device-width : 0px) and (max-device-width : 480px) {
+@media only screen and (min-width : 0px) and (max-width : 480px) {
 	h4{
 		font-size: 1.5rem;
 		padding: .2rem;
@@ -526,4 +588,13 @@ button:focus {
 	p{
 		font-size: 1.2rem;
 	}
+	.skills_wrapper{
+		.skill{
+
+			width: 5.5rem;	
+			height: 5.5rem;
+
+		}
+	}
+
 }
