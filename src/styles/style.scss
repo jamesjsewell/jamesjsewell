@@ -13,6 +13,7 @@ html {
 	max-width: 100%;
 	padding: 0px;
 	margin: 0px;
+	background: black;
 	
 }
 
@@ -20,7 +21,7 @@ body{
 	max-width: 100%;
 	padding: 0px;
 	margin: 0px;
-	background: none;
+	background: black;
 }
 
 button{
@@ -401,7 +402,7 @@ button:focus {
 
 
 		.project_wrapper{
-			border-radius: 1rem;
+			
 			position: relative;
 			overflow: hidden;
 
@@ -470,7 +471,7 @@ button:focus {
 			}
 
 			color: white;
-			background-color: rgba(0,0,0,.5);
+			
 			position: relative;
 			font-family: 'Source Sans Pro', sans-serif;
 			font-size: 100%;

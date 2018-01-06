@@ -209,7 +209,7 @@ export default class HomePageLayout extends React.PureComponent {
 
     render() {
         var debug = true;
-        var debugStyle = { border: `.01rem dashed grey` };
+        var debugStyle = { border: `.05rem dashed black`, background: `white` };
         return (
             <ResponsiveReactGridLayout
                 useCSSTransforms={true}
@@ -222,6 +222,7 @@ export default class HomePageLayout extends React.PureComponent {
                 rowHeight={100}
                 className="projects_wrapper"
                 compactType={null}
+                autoSize={true}
             >
 
                 <div key="logo" style={debug ? debugStyle : {}}>
